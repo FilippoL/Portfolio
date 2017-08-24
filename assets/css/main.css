@@ -1820,7 +1820,7 @@
 				}
 
 				.box.style2 .image {
-					position: fixed;
+					position: static;
 					left: 2em;
 					top: 2em;
 					margin: -4em 0 4em -4em;
