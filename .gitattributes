@@ -1,0 +1,4 @@
+Projects/ZombieHolocaust.zip filter=lfs diff=lfs merge=lfs -text
+Projects/BubbleShooter.zip filter=lfs diff=lfs merge=lfs -text
+Projects/HunterGame filter=lfs diff=lfs merge=lfs -text
+Projects/Protodev filter=lfs diff=lfs merge=lfs -text
