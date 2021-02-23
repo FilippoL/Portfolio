@@ -1489,6 +1489,10 @@
 					background-color: #FAFAFA;
 				}
 
+				ul.social li a.faresearchgate{
+					background-color: #746666;
+				}
+
 				ul.social li a.fa-rss {
 					background-color: #F2600B;
 				}
