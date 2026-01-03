@@ -1,18 +1,528 @@
-<!doctype html>
-<title>Site Maintenance</title>
-<style>
-  body { text-align: center; padding: 150px; }
-  h1 { font-size: 50px; }
-  body { font: 20px Helvetica, sans-serif; color: #333; }
-  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
-  a { color: #dc8100; text-decoration: none; }
-  a:hover { color: #333; text-decoration: none; }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Filippo Libardi - AI Researcher & Graphics Programmer. MSc in Artificial Intelligence specializing in computer vision, deep learning, and game development.">
+    <meta name="keywords" content="AI researcher, computer vision, deep learning, graphics programming, game development, rPPG, neural networks">
+    <meta name="author" content="Filippo Maria Libardi">
+    <title>Filippo Libardi - AI Researcher & Graphics Programmer</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/modern.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="container">
+            <a href="#hero" class="logo">FL</a>
+            <ul class="nav-links">
+                <li><a href="#employment">Employment</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#currently-working">Personal Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </div>
+    </nav>
 
-<article>
-    <h1>I&rsquo;ll be back soon!</h1>
-    <div>
-        <p>Sorry for the inconvenience but I&rsquo;m performing some maintenance at the moment. If you need to you can always <a href="mailto:pippo.libardi@gmail.com">contact me</a>, I&rsquo;ll be back online shortly!</p>
-        <p>&mdash; Filippo L.</p>
-    </div>
-</article>
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Filippo Maria Libardi</h1>
+                <div class="typing-container">
+                    <span id="typed-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="subtitle fade-in-delay">MSc Artificial Intelligence • Utrecht University<br>Engineering solutions the world is missing</p>
+                <div class="hero-cta fade-in-delay-2">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="Curriculum/Filippo_Maria_Libardi_cv.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="wrapper">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I'm an AI researcher and software engineer specializing in <strong>computer vision</strong>, <strong>deep learning</strong>, and <strong>graphics programming</strong>. My work bridges academic research with practical engineering, from developing neural networks for remote physiological monitoring to building custom game engines in DirectX and OpenGL.</p>
+                    <p>Currently exploring <strong>procedural 3D generation</strong>, co-founding <strong>PecuHealth</strong> and <strong>ClusTEQ</strong>, and working on cutting-edge embedded systems at Teoresi. My research has been published in academic venues, focusing on contactless health monitoring, NLP bias detection, and ethical AI systems.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/filippo.jpg" alt="Filippo Libardi" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Employment Section -->
+    <section id="employment" class="wrapper style-alt">
+        <div class="container">
+            <header class="section-header">
+                <h2>Current Roles</h2>
+                <p>Co-founder driving AI products in health-tech and BIM innovation</p>
+            </header>
+
+            <div class="employment-grid">
+                <article class="employment-card" data-aos="fade-up">
+                    <div class="employment-logo">
+                        <img src="https://pecuschain.com/assets/logo_qr-CBKKfQyw.svg" alt="PecuHealth logo">
+                    </div>
+                    <div class="employment-content">
+                        <h3>PecuHealth</h3>
+                        <p>AI-powered dairy health platform predicting mastitis risk and optimizing herd productivity through unified farm data.</p>
+                        <div class="employment-links">
+                            <a href="https://pecuschain.com/" target="_blank" class="btn btn-small">Visit Website</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="employment-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="employment-logo">
+                        <img src="images/ClusTEQ logo-square.png" alt="ClusTEQ logo">
+                    </div>
+                    <div class="employment-content">
+                        <h3>ClusTEQ</h3>
+                        <p>Next-generation BIM platform built on game-engine tech, delivering lag-free design, real-time collaboration, AI assistance, and advanced versioning.</p>
+                        <div class="employment-links">
+                            <a href="https://www.clusteq.com/" target="_blank" class="btn btn-small">Visit Website</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="wrapper style-alt">
+        <div class="container">
+            <header class="section-header">
+                <h2>Featured Projects</h2>
+                <p>A selection of academic research and engineering work</p>
+            </header>
+
+            <div class="projects-grid">
+                <!-- Project 1: rppg-nn -->
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="images/nrppg.png" alt="rPPG Neural Network">
+                        <div class="project-overlay">
+                            <a href="https://github.com/FilippoL/rppg-nn" target="_blank" class="project-link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                        <h3>NrPPG-NNET</h3>
+                        <p>Master's thesis project: Deep learning approach for contactless heart rate monitoring via facial video analysis. End-to-end neural network for remote photoplethysmography.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/FilippoL/rppg-nn" target="_blank" class="icon-link">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#publications" class="icon-link">
+                                <span>Publication</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: FaceManager -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="images/Facemanager.png" alt="Face Manager">
+                        <div class="project-overlay">
+                            <a href="https://github.com/FilippoL/FaceManager" target="_blank" class="project-link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">dlib</span>
+                            <span class="tag">Face Recognition</span>
+                        </div>
+                        <h3>FaceManager</h3>
+                        <p>Real-time face detection and tracking system for identity management. Implements state-of-the-art face recognition algorithms with efficient processing pipeline.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/FilippoL/FaceManager" target="_blank" class="icon-link">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Multimedia Retrieval -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="images/mmr.jpg" alt="Multimedia Retrieval">
+                        <div class="project-overlay">
+                            <a href="https://github.com/FilippoL/project_multimedia_retrieval" target="_blank" class="project-link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Information Retrieval</span>
+                        </div>
+                        <h3>Multimedia Retrieval System</h3>
+                        <p>Content-based multimedia search engine using feature extraction and similarity metrics. Implements advanced indexing and query optimization techniques.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/FilippoL/project_multimedia_retrieval" target="_blank" class="icon-link">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: Unity Hunting Game -->
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="images/hunter.png" alt="Unity Hunting Game">
+                        <div class="project-overlay">
+                            <a href="https://filippol.github.io/UnityHuntingGame/" target="_blank" class="project-link">Play Demo</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Unity</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">Game AI</span>
+                        </div>
+                        <h3>Hunting Game - AI Behaviors</h3>
+                        <p>3D hunting simulation demonstrating AI steering behaviors including seek, wander, evade, and leader-based flocking. Finite state machine implementation with coroutine-based state management.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/FilippoL/UnityHuntingGame" target="_blank" class="icon-link">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://filippol.github.io/UnityHuntingGame/" target="_blank" class="icon-link">
+                                <span>Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5: Zombie Holocaust -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="images/ZombieHolocaust.PNG" alt="Zombie Holocaust">
+                        <div class="project-overlay">
+                            <a href="https://github.com/FilippoL/ZombieHolocaust" target="_blank" class="project-link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">DirectX 11</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Game Engine</span>
+                        </div>
+                        <h3>Zombie Holocaust</h3>
+                        <p>Custom 3D game engine built from scratch using DirectX 11. Features include frame-based animation system, FMOD audio integration, collision detection, and dynamic difficulty scaling.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/FilippoL/ZombieHolocaust" target="_blank" class="icon-link">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://youtu.be/qPTukMO4oaA" target="_blank" class="icon-link">
+                                <span>Trailer</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 6: Bremen Hackathon -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="images/bremen.jpg" alt="Bremen Hackathon">
+                        <div class="project-overlay">
+                            <a href="https://github.com/FilippoL/BremenHackathon2019" target="_blank" class="project-link">View on GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Hackathon</span>
+                            <span class="tag">Rapid Development</span>
+                            <span class="tag">Team Project</span>
+                        </div>
+                        <h3>Bremen Hackathon 2019</h3>
+                        <p>48-hour collaborative software challenge entry. Rapid prototyping and agile development under time constraints, demonstrating problem-solving and teamwork skills.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/FilippoL/BremenHackathon2019" target="_blank" class="icon-link">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- More Projects Link -->
+            <div class="more-projects">
+                <a href="https://github.com/FilippoL" target="_blank" class="btn btn-outline">View All Projects on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="wrapper">
+        <div class="container">
+            <header class="section-header">
+                <h2>Academic Publications</h2>
+                <p>Research contributions in AI, computer vision, and ethical computing</p>
+            </header>
+
+            <div class="publications-list">
+                <!-- Publication 1 -->
+                <article class="publication-card" data-aos="fade-up">
+                    <div class="publication-meta">
+                        <span class="publication-year">2021</span>
+                        <span class="publication-type">Master's Thesis</span>
+                    </div>
+                    <div class="publication-content">
+                        <h3>NrPPG-NNET: An End to End Deep Learning Approach to Remote Heart Rate Estimation Through Spatial Temporal Representation</h3>
+                        <p class="publication-authors">Filippo Maria Libardi</p>
+                        <p class="publication-venue">Utrecht University, November 2021</p>
+                        <p class="publication-abstract">Deep learning approach to remote heart rate estimation using spatial-temporal representations. Novel methodology for contactless cardiovascular monitoring through computer vision, eliminating the need for traditional touch sensors.</p>
+                        <div class="publication-links">
+                            <a href="https://www.researchgate.net/publication/358575638" target="_blank" class="btn btn-small">ResearchGate</a>
+                            <a href="Curriculum/papers/libardi_2021_nrppg.pdf" class="btn btn-small">PDF</a>
+                            <a href="https://github.com/FilippoL/rppg-nn" target="_blank" class="btn btn-small">Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Publication 2 -->
+                <article class="publication-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="publication-meta">
+                        <span class="publication-year">2021</span>
+                        <span class="publication-type">Research Paper</span>
+                    </div>
+                    <div class="publication-content">
+                        <h3>Visualising Language Bias Over Time Using Reddit Comment Data</h3>
+                        <p class="publication-authors">Otto Mättas, Filippo Maria Libardi</p>
+                        <p class="publication-venue">Tallinn University of Technology, February 2021</p>
+                        <p class="publication-abstract">Novel approach to language bias visualization through temporal analysis of large-scale Reddit datasets. Introduces methodology for collecting and analyzing bias scores from text corpora using word embeddings.</p>
+                        <div class="publication-links">
+                            <a href="https://www.researchgate.net/publication/349350185" target="_blank" class="btn btn-small">ResearchGate</a>
+                            <a href="Curriculum/papers/mattas_libardi_2021_bias.pdf" class="btn btn-small">PDF</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Publication 3 -->
+                <article class="publication-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="publication-meta">
+                        <span class="publication-year">2020</span>
+                        <span class="publication-type">Research Paper</span>
+                    </div>
+                    <div class="publication-content">
+                        <h3>The Rise of Decentralised Systems</h3>
+                        <p class="publication-authors">Filippo Maria Libardi</p>
+                        <p class="publication-venue">April 2020</p>
+                        <p class="publication-abstract">Examines decentralized systems as solutions to privacy policy challenges. Presents ethical dilemmas in modern computing and proposes decentralized architectures as ethically supportive alternatives.</p>
+                        <div class="publication-links">
+                            <a href="https://www.researchgate.net/publication/349339676" target="_blank" class="btn btn-small">ResearchGate</a>
+                            <a href="Curriculum/papers/libardi_2020_decentralised.pdf" class="btn btn-small">PDF</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="researchgate-link">
+                <a href="https://www.researchgate.net/profile/Filippo-Libardi/research" target="_blank" class="btn btn-outline">
+                    View Full ResearchGate Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Working On Section -->
+    <section id="currently-working" class="wrapper style-alt">
+        <div class="container">
+            <header class="section-header">
+                <h2>Personal Projects</h2>
+                <p>Recent personal work and GitHub activity</p>
+                <button id="refresh-activity" class="refresh-btn" aria-label="Refresh activity">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                </button>
+            </header>
+
+            <div id="github-activity" class="activity-grid">
+                <!-- Loading skeleton -->
+                <div class="activity-skeleton">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+
+            <p class="activity-timestamp" id="activity-timestamp"></p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="wrapper">
+        <div class="container">
+            <header class="section-header">
+                <h2>Skills & Technologies</h2>
+                <p>Technical expertise across AI, graphics programming, and software engineering</p>
+            </header>
+
+            <div class="skills-grid">
+                <div class="skill-category" data-aos="fade-up">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">NLTK</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Neural Networks</span>
+                        <span class="skill-tag">NLP</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Graphics Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">DirectX 11</span>
+                        <span class="skill-tag">OpenGL</span>
+                        <span class="skill-tag">Shaders (HLSL/GLSL)</span>
+                        <span class="skill-tag">Custom Engines</span>
+                        <span class="skill-tag">3D Rendering</span>
+                        <span class="skill-tag">Animation Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Game Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">Unreal Engine</span>
+                        <span class="skill-tag">C# (Unity)</span>
+                        <span class="skill-tag">Game AI</span>
+                        <span class="skill-tag">Physics Simulation</span>
+                        <span class="skill-tag">SDL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HLSL/GLSL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Tools & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Visual Studio</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">FMOD</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Research Interests</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Procedural Generation</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Ethical AI</span>
+                        <span class="skill-tag">3D Shape Generation</span>
+                        <span class="skill-tag">Embedded Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="wrapper style-alt">
+        <div class="container">
+            <header class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Let's connect and discuss opportunities</p>
+            </header>
+
+            <div class="contact-content">
+                <form id="contact-form" method="POST" action="https://formspree.io/f/pippo.libardi@gmail.com">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" rows="6" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <a href="mailto:pippo.libardi@gmail.com">pippo.libardi@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/FilippoL" target="_blank">github.com/FilippoL</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>ResearchGate</h4>
+                        <a href="https://www.researchgate.net/profile/Filippo-Libardi" target="_blank">ResearchGate Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>LinkedIn</h4>
+                        <a href="https://linkedin.com/in/filippo-libardi" target="_blank">LinkedIn Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Filippo Maria Libardi. Built with passion for AI and graphics programming.</p>
+            <p class="footer-links">
+                <a href="https://github.com/FilippoL" target="_blank">GitHub</a> •
+                <a href="https://www.researchgate.net/profile/Filippo-Libardi" target="_blank">ResearchGate</a> •
+                <a href="Curriculum/Filippo_Maria_Libardi_cv.pdf" target="_blank">CV</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/portfolio.js"></script>
+</body>
+</html>
