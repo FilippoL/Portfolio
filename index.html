@@ -388,10 +388,10 @@
                 <p>Technical expertise across AI, graphics programming, and software engineering</p>
             </header>
 
-            <div class="skills-grid">
-                <div class="skill-category" data-aos="fade-up">
-                    <h3>AI & Machine Learning</h3>
-                    <div class="skill-tags">
+            <div class="skills-carousel-wrapper">
+                <div class="skills-carousel">
+                    <!-- Row 1 - scrolling right -->
+                    <div class="skills-track" data-direction="right">
                         <span class="skill-tag" data-tooltip="Deep learning framework">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="skill-icon">
                             PyTorch
@@ -406,23 +406,50 @@
                         </span>
                         <span class="skill-tag" data-tooltip="Python data science">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-icon">
-                            NumPy/Pandas
+                            NumPy
                         </span>
-                        <span class="skill-tag">Deep Learning</span>
-                        <span class="skill-tag">Neural Networks</span>
-                        <span class="skill-tag">NLP</span>
-                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag" data-tooltip="Neural networks & deep learning">
+                            <span class="skill-icon">🧠</span>
+                            Neural Networks
+                        </span>
+                        <span class="skill-tag" data-tooltip="Natural language processing">
+                            <span class="skill-icon">💬</span>
+                            NLP
+                        </span>
+                        <!-- Duplicate for infinite scroll -->
+                        <span class="skill-tag" data-tooltip="Deep learning framework">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="skill-icon">
+                            PyTorch
+                        </span>
+                        <span class="skill-tag" data-tooltip="Machine learning platform">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="skill-icon">
+                            TensorFlow
+                        </span>
+                        <span class="skill-tag" data-tooltip="Computer vision library">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="skill-icon">
+                            OpenCV
+                        </span>
+                        <span class="skill-tag" data-tooltip="Python data science">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-icon">
+                            NumPy
+                        </span>
+                        <span class="skill-tag" data-tooltip="Neural networks & deep learning">
+                            <span class="skill-icon">🧠</span>
+                            Neural Networks
+                        </span>
+                        <span class="skill-tag" data-tooltip="Natural language processing">
+                            <span class="skill-icon">💬</span>
+                            NLP
+                        </span>
                     </div>
-                </div>
 
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Graphics Programming</h3>
-                    <div class="skill-tags">
+                    <!-- Row 2 - scrolling left -->
+                    <div class="skills-track" data-direction="left">
                         <span class="skill-tag" data-tooltip="Microsoft graphics API">
                             <svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M11.5 0L0 3v18l11.5 3 11.5-3V3L11.5 0zm8.5 19.5l-8.5 2.219-8.5-2.219V4.5l8.5-2.219 8.5 2.219v15z"/>
                             </svg>
-                            DirectX 11
+                            DirectX
                         </span>
                         <span class="skill-tag" data-tooltip="Cross-platform graphics API">
                             <svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -430,37 +457,55 @@
                             </svg>
                             OpenGL
                         </span>
-                        <span class="skill-tag">Shaders (HLSL/GLSL)</span>
-                        <span class="skill-tag">Custom Engines</span>
-                        <span class="skill-tag">3D Rendering</span>
-                        <span class="skill-tag">Animation Systems</span>
-                    </div>
-                </div>
-
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Game Development</h3>
-                    <div class="skill-tags">
                         <span class="skill-tag" data-tooltip="Game engine">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" class="skill-icon">
                             Unity
                         </span>
                         <span class="skill-tag" data-tooltip="Game engine">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal" class="skill-icon">
-                            Unreal Engine
+                            Unreal
                         </span>
-                        <span class="skill-tag" data-tooltip="C# for Unity">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon">
-                            C# (Unity)
+                        <span class="skill-tag" data-tooltip="3D rendering & modeling">
+                            <span class="skill-icon">🎮</span>
+                            3D Rendering
                         </span>
-                        <span class="skill-tag">Game AI</span>
-                        <span class="skill-tag">Physics Simulation</span>
-                        <span class="skill-tag">SDL</span>
+                        <span class="skill-tag" data-tooltip="Shader programming">
+                            <span class="skill-icon">✨</span>
+                            Shaders
+                        </span>
+                        <!-- Duplicate for infinite scroll -->
+                        <span class="skill-tag" data-tooltip="Microsoft graphics API">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.5 0L0 3v18l11.5 3 11.5-3V3L11.5 0zm8.5 19.5l-8.5 2.219-8.5-2.219V4.5l8.5-2.219 8.5 2.219v15z"/>
+                            </svg>
+                            DirectX
+                        </span>
+                        <span class="skill-tag" data-tooltip="Cross-platform graphics API">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.026 3.503L12 0 3.974 3.503 0 12l3.974 8.497L12 24l8.026-3.503L24 12l-3.974-8.497zM12 4.5l6.513 2.831L12 10.162 5.487 7.331 12 4.5z"/>
+                            </svg>
+                            OpenGL
+                        </span>
+                        <span class="skill-tag" data-tooltip="Game engine">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" class="skill-icon">
+                            Unity
+                        </span>
+                        <span class="skill-tag" data-tooltip="Game engine">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal" class="skill-icon">
+                            Unreal
+                        </span>
+                        <span class="skill-tag" data-tooltip="3D rendering & modeling">
+                            <span class="skill-icon">🎮</span>
+                            3D Rendering
+                        </span>
+                        <span class="skill-tag" data-tooltip="Shader programming">
+                            <span class="skill-icon">✨</span>
+                            Shaders
+                        </span>
                     </div>
-                </div>
 
-                <div class="skill-category" data-aos="fade-up">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
+                    <!-- Row 3 - scrolling right -->
+                    <div class="skills-track" data-direction="right">
                         <span class="skill-tag" data-tooltip="Systems programming">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-icon">
                             C++
@@ -477,41 +522,39 @@
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon">
                             JavaScript
                         </span>
-                        <span class="skill-tag">HLSL/GLSL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Tools & Frameworks</h3>
-                    <div class="skill-tags">
                         <span class="skill-tag" data-tooltip="Version control">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon">
                             Git
-                        </span>
-                        <span class="skill-tag" data-tooltip="IDE">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="VS" class="skill-icon">
-                            Visual Studio
                         </span>
                         <span class="skill-tag" data-tooltip="Code editor">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" class="skill-icon">
                             VS Code
                         </span>
-                        <span class="skill-tag" data-tooltip="Interactive notebooks">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" class="skill-icon">
-                            Jupyter
+                        <!-- Duplicate for infinite scroll -->
+                        <span class="skill-tag" data-tooltip="Systems programming">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-icon">
+                            C++
                         </span>
-                        <span class="skill-tag">FMOD</span>
-                    </div>
-                </div>
-
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Research Interests</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Procedural Generation</span>
-                        <span class="skill-tag">Computer Vision</span>
-                        <span class="skill-tag">Ethical AI</span>
-                        <span class="skill-tag">3D Shape Generation</span>
-                        <span class="skill-tag">Embedded Systems</span>
+                        <span class="skill-tag" data-tooltip="AI & scripting">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-icon">
+                            Python
+                        </span>
+                        <span class="skill-tag" data-tooltip="Unity & .NET">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon">
+                            C#
+                        </span>
+                        <span class="skill-tag" data-tooltip="Web development">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon">
+                            JavaScript
+                        </span>
+                        <span class="skill-tag" data-tooltip="Version control">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon">
+                            Git
+                        </span>
+                        <span class="skill-tag" data-tooltip="Code editor">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" class="skill-icon">
+                            VS Code
+                        </span>
                     </div>
                 </div>
             </div>

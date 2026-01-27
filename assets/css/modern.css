@@ -718,7 +718,57 @@ a:hover {
     100% { background-position: -200% 0; }
 }
 
-/* Skills Section */
+/* Skills Section - Carousel */
+.skills-carousel-wrapper {
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+.skills-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skills-track {
+    display: flex;
+    gap: 1rem;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+}
+
+.skills-track[data-direction="right"] {
+    animation-name: scroll-right;
+}
+
+.skills-track[data-direction="left"] {
+    animation-name: scroll-left;
+}
+
+.skills-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -759,6 +809,8 @@ a:hover {
     gap: 0.5rem;
     position: relative;
     cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .skill-tag .skill-icon {
@@ -766,6 +818,10 @@ a:hover {
     height: 20px;
     object-fit: contain;
     transition: transform 0.3s ease;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-tag:hover {
