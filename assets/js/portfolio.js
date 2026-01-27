@@ -380,6 +380,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Form Submission Enhancement
 // ===================================
 const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+// Check for success parameter in URL
+if (window.location.search.includes('success=true')) {
+    formStatus.textContent = '✓ Message sent successfully! Thank you for getting in touch.';
+    formStatus.style.display = 'block';
+    formStatus.style.color = 'var(--accent-primary)';
+    
+    // Remove success parameter from URL
+    const url = new URL(window.location);
+    url.searchParams.delete('success');
+    window.history.replaceState({}, '', url);
+    
+    // Hide message after 5 seconds
+    setTimeout(() => {
+        formStatus.style.display = 'none';
+    }, 5000);
+}
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -388,6 +406,7 @@ contactForm.addEventListener('submit', async (e) => {
     const originalText = submitButton.textContent;
     submitButton.textContent = 'Sending...';
     submitButton.disabled = true;
+    formStatus.style.display = 'none';
     
     try {
         const formData = new FormData(contactForm);
@@ -401,17 +420,26 @@ contactForm.addEventListener('submit', async (e) => {
         
         if (response.ok) {
             submitButton.textContent = '✓ Sent Successfully!';
+            formStatus.textContent = '✓ Your message has been sent! I\'ll get back to you soon.';
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'var(--accent-primary)';
             contactForm.reset();
+            
             setTimeout(() => {
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
-            }, 3000);
+                formStatus.style.display = 'none';
+            }, 5000);
         } else {
             throw new Error('Form submission failed');
         }
     } catch (error) {
         console.error('Form submission error:', error);
         submitButton.textContent = '✗ Failed - Try Again';
+        formStatus.textContent = '✗ Something went wrong. Please try again or email me directly.';
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#ef4444';
+        
         setTimeout(() => {
             submitButton.textContent = originalText;
             submitButton.disabled = false;
