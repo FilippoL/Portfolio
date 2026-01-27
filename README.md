@@ -66,7 +66,7 @@ Portfolio/
 ├── images/                     # Project screenshots and assets
 ├── Curriculum/
 │   ├── papers/                # Academic publication PDFs
-│   └── Filippo_Maria_Libardi_cv.pdf
+│   └── CV.pdf
 ├── Projects/                   # Project files and documentation
 ├── archive/                    # Old portfolio versions
 └── README.md
