@@ -386,30 +386,34 @@ function updateTimestamp(date) {
     timestampElement.textContent = `Last updated: ${date.toLocaleString()}`;
 }
 
-// Refresh button functionality
+// Refresh button functionality and initial fetch
 document.addEventListener('DOMContentLoaded', () => {
-    const refreshButton = document.getElementById('refresh-activity');
-    
-    refreshButton.addEventListener('click', () => {
-        // Clear cache and fetch fresh data
-        localStorage.removeItem(CACHE_KEY);
-        localStorage.removeItem(CACHE_TIMESTAMP_KEY);
-        
-        const activityContainer = document.getElementById('github-activity');
-        activityContainer.innerHTML = `
-            <div class="activity-skeleton">
-                <div class="skeleton-card"></div>
-                <div class="skeleton-card"></div>
-                <div class="skeleton-card"></div>
-                <div class="skeleton-card"></div>
-            </div>
-        `;
-        
-        fetchGitHubActivity();
-    });
-    
-    // Initial fetch
+    // Initial fetch - do this first
     fetchGitHubActivity();
+    
+    // Set up refresh button
+    const refreshButton = document.getElementById('refresh-activity');
+    if (refreshButton) {
+        refreshButton.addEventListener('click', () => {
+            // Clear cache and fetch fresh data
+            localStorage.removeItem(CACHE_KEY);
+            localStorage.removeItem(CACHE_TIMESTAMP_KEY);
+            
+            const activityContainer = document.getElementById('github-activity');
+            if (activityContainer) {
+                activityContainer.innerHTML = `
+                    <div class="activity-skeleton">
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                    </div>
+                `;
+            }
+            
+            fetchGitHubActivity();
+        });
+    }
 });
 
 // ===================================
