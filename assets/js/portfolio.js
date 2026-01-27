@@ -207,8 +207,22 @@ async function fetchGitHubActivity() {
         
         const allRepos = await reposResponse.json();
         
-        // Calculate total stars
+        // Calculate statistics
         const totalStars = allRepos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+        const totalForks = allRepos.reduce((sum, repo) => sum + (repo.forks_count || 0), 0);
+        const publicRepos = allRepos.filter(repo => !repo.fork).length;
+        
+        // Language distribution
+        const languageCount = {};
+        allRepos.forEach(repo => {
+            if (repo.language && !repo.fork) {
+                languageCount[repo.language] = (languageCount[repo.language] || 0) + 1;
+            }
+        });
+        const topLanguages = Object.entries(languageCount)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3)
+            .map(([lang]) => lang);
         
         // Get last 4 updated repos (excluding forks if desired)
         const recentRepos = allRepos
@@ -257,7 +271,10 @@ async function fetchGitHubActivity() {
         
         const activityData = {
             repos: repoDetails,
-            totalStars: totalStars
+            totalStars: totalStars,
+            publicRepos: publicRepos,
+            totalForks: totalForks,
+            topLanguages: topLanguages
         };
         
         // Cache the results
@@ -279,6 +296,9 @@ function renderActivity(data) {
     // Handle both old cached format (array) and new format (object with repos and totalStars)
     const repos = Array.isArray(data) ? data : data.repos;
     const totalStars = data.totalStars || 0;
+    const publicRepos = data.publicRepos || 0;
+    const totalForks = data.totalForks || 0;
+    const topLanguages = data.topLanguages || [];
     
     if (!repos || repos.length === 0) {
         renderFallback(activityContainer);
@@ -293,8 +313,16 @@ function renderActivity(data) {
                     <span class="stat-label">Total Stars</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">${repos.length}</span>
-                    <span class="stat-label">Recent Updates</span>
+                    <span class="stat-number">${publicRepos}</span>
+                    <span class="stat-label">Public Repos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">${totalForks}</span>
+                    <span class="stat-label">Total Forks</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">${topLanguages.join(', ')}</span>
+                    <span class="stat-label">Top Languages</span>
                 </div>
             </div>
         ` : ''}
