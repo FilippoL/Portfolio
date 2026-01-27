@@ -198,68 +198,73 @@ async function fetchGitHubActivity() {
             return;
         }
         
-        // Fetch fresh data from GitHub API
-        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public`);
+        // Fetch all repos for the user
+        const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`);
         
-        if (!response.ok) {
+        if (!reposResponse.ok) {
             throw new Error('GitHub API request failed');
         }
         
-        const events = await response.json();
+        const allRepos = await reposResponse.json();
         
-        // Filter for push events
-        const pushEvents = events.filter(e => e.type === 'PushEvent');
+        // Calculate total stars
+        const totalStars = allRepos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
         
-        // Get unique repos (last 3)
-        const uniqueRepos = [];
-        const seenRepos = new Set();
+        // Get last 4 updated repos (excluding forks if desired)
+        const recentRepos = allRepos
+            .filter(repo => !repo.fork) // Optional: exclude forks
+            .slice(0, 4)
+            .map(repo => ({
+                name: repo.name,
+                fullName: repo.name,
+                url: repo.html_url,
+                description: repo.description || 'No description available',
+                language: repo.language || 'Unknown',
+                stars: repo.stargazers_count || 0,
+                updatedAt: new Date(repo.updated_at)
+            }));
         
-        for (const event of pushEvents) {
-            if (!seenRepos.has(event.repo.name)) {
-                seenRepos.add(event.repo.name);
-                uniqueRepos.push({
-                    name: event.repo.name,
-                    fullName: event.repo.name.split('/')[1],
-                    date: new Date(event.created_at),
-                    commits: event.payload.commits,
-                    url: `https://github.com/${event.repo.name}`
-                });
-                
-                if (uniqueRepos.length === 3) break;
-            }
-        }
-        
-        // Fetch repo details for each
+        // Fetch recent commit for each repo
         const repoDetails = await Promise.all(
-            uniqueRepos.map(async (repo) => {
+            recentRepos.map(async (repo) => {
                 try {
-                    const repoResponse = await fetch(`https://api.github.com/repos/${repo.name}`);
-                    const repoData = await repoResponse.json();
+                    const commitsResponse = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits?per_page=1`);
+                    if (commitsResponse.ok) {
+                        const commits = await commitsResponse.json();
+                        if (commits && commits.length > 0) {
+                            return {
+                                ...repo,
+                                lastCommitMessage: commits[0].commit.message.split('\n')[0], // First line only
+                                lastCommitDate: new Date(commits[0].commit.committer.date)
+                            };
+                        }
+                    }
                     return {
                         ...repo,
-                        description: repoData.description || 'No description available',
-                        language: repoData.language || 'Unknown',
-                        lastCommitMessage: repo.commits && repo.commits.length > 0 
-                            ? repo.commits[repo.commits.length - 1].message 
-                            : 'Recent commit'
+                        lastCommitMessage: 'Recent activity',
+                        lastCommitDate: repo.updatedAt
                     };
                 } catch (error) {
-                    console.error(`Error fetching repo details for ${repo.name}:`, error);
+                    console.error(`Error fetching commits for ${repo.name}:`, error);
                     return {
                         ...repo,
-                        description: 'Repository details unavailable',
-                        language: 'Unknown',
-                        lastCommitMessage: 'Recent activity'
+                        lastCommitMessage: 'Recent activity',
+                        lastCommitDate: repo.updatedAt
                     };
                 }
             })
         );
         
+        const activityData = {
+            repos: repoDetails,
+            totalStars: totalStars
+        };
+        
         // Cache the results
-        localStorage.setItem(CACHE_KEY, JSON.stringify(repoDetails));
+        localStorage.setItem(CACHE_KEY, JSON.stringify(activityData));
         localStorage.setItem(CACHE_TIMESTAMP_KEY, now.toString());
         
-        renderActivity(repoDetails);
+        renderActivity(activityData);
         updateTimestamp(new Date());
         
     } catch (error) {
@@ -268,26 +273,47 @@ async function fetchGitHubActivity() {
     }
 }
 
-function renderActivity(repos) {
+function renderActivity(data) {
     const activityContainer = document.getElementById('github-activity');
+    
+    // Handle both old cached format (array) and new format (object with repos and totalStars)
+    const repos = Array.isArray(data) ? data : data.repos;
+    const totalStars = data.totalStars || 0;
     
     if (!repos || repos.length === 0) {
         renderFallback(activityContainer);
         return;
     }
     
-    const html = repos.map(repo => {
-        const timeAgo = getTimeAgo(repo.date);
-        return `
-            <article class="activity-card">
-                <h3><a href="${repo.url}" target="_blank">${repo.fullName}</a></h3>
-                <span class="language-badge">${repo.language}</span>
-                <p class="last-updated">Updated ${timeAgo}</p>
-                <p class="description">${repo.description}</p>
-                <p class="commit-preview">"${repo.lastCommitMessage}"</p>
-            </article>
-        `;
-    }).join('');
+    const html = `
+        ${!Array.isArray(data) ? `
+            <div class="stats-banner">
+                <div class="stat-item">
+                    <span class="stat-number">★ ${totalStars}</span>
+                    <span class="stat-label">Total Stars</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">${repos.length}</span>
+                    <span class="stat-label">Recent Updates</span>
+                </div>
+            </div>
+        ` : ''}
+        ${repos.map(repo => {
+            const timeAgo = getTimeAgo(repo.lastCommitDate || repo.updatedAt || repo.date);
+            return `
+                <article class="activity-card">
+                    <h3>
+                        <a href="${repo.url}" target="_blank">${repo.fullName}</a>
+                        ${repo.stars > 0 ? `<span class="star-count">★ ${repo.stars}</span>` : ''}
+                    </h3>
+                    <span class="language-badge">${repo.language}</span>
+                    <p class="last-updated">Last commit ${timeAgo}</p>
+                    <p class="description">${repo.description}</p>
+                    <p class="commit-preview">"${repo.lastCommitMessage}"</p>
+                </article>
+            `;
+        }).join('')}
+    `;
     
     activityContainer.innerHTML = html;
 }
@@ -344,6 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const activityContainer = document.getElementById('github-activity');
         activityContainer.innerHTML = `
             <div class="activity-skeleton">
+                <div class="skeleton-card"></div>
                 <div class="skeleton-card"></div>
                 <div class="skeleton-card"></div>
                 <div class="skeleton-card"></div>
