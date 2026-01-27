@@ -49,7 +49,7 @@
                 <p class="subtitle fade-in-delay">MSc Artificial Intelligence • Utrecht University<br>Engineering solutions the world is missing</p>
                 <div class="hero-cta fade-in-delay-2">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="Curriculum/Filippo_Maria_Libardi_cv.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+                    <a href="Curriculum/CV.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
                 <div class="about-text">
                     <h2>About Me</h2>
                     <p>I'm an AI researcher and software engineer specializing in <strong>computer vision</strong>, <strong>deep learning</strong>, and <strong>graphics programming</strong>. My work bridges academic research with practical engineering, from developing neural networks for remote physiological monitoring to building custom game engines in DirectX and OpenGL.</p>
-                    <p>Currently exploring <strong>procedural 3D generation</strong> and co-founding <strong>PecuHealth</strong> and <strong>ClusTEQ</strong>. My research has been published in academic venues, focusing on contactless health monitoring, NLP bias detection, and ethical AI systems.</p>
+                    <p>Currently exploring <strong>procedural 3D generation</strong> and co-founding <strong>Pecus Chain</strong> and <strong>ClusTEQ</strong>. My research has been published in academic venues, focusing on contactless health monitoring, NLP bias detection, and ethical AI systems.</p>
                 </div>
                 <div class="about-image">
                     <img src="images/filippo.jpg" alt="Filippo Libardi" class="profile-img">
@@ -85,7 +85,8 @@
                         <img src="https://pecuschain.com/assets/logo_qr-CBKKfQyw.svg" alt="PecuHealth logo">
                     </div>
                     <div class="employment-content">
-                        <h3>PecuHealth</h3>
+                        <h3>Pecus Chain</h3>
+                        <p class="employment-position">CTO</p>
                         <p>AI-powered dairy health platform predicting mastitis risk and optimizing herd productivity through unified farm data.</p>
                         <div class="employment-links">
                             <a href="https://pecuschain.com/" target="_blank" class="btn btn-small">Visit Website</a>
@@ -99,6 +100,7 @@
                     </div>
                     <div class="employment-content">
                         <h3>ClusTEQ</h3>
+                        <p class="employment-position">VP of Product & Co-founder</p>
                         <p>Next-generation BIM platform built on game-engine tech, delivering lag-free design, real-time collaboration, AI assistance, and advanced versioning.</p>
                         <div class="employment-links">
                             <a href="https://www.clusteq.com/" target="_blank" class="btn btn-small">Visit Website</a>
@@ -390,22 +392,44 @@
                 <div class="skill-category" data-aos="fade-up">
                     <h3>AI & Machine Learning</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Computer Vision</span>
-                        <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">NLTK</span>
+                        <span class="skill-tag" data-tooltip="Deep learning framework">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="skill-icon">
+                            PyTorch
+                        </span>
+                        <span class="skill-tag" data-tooltip="Machine learning platform">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="skill-icon">
+                            TensorFlow
+                        </span>
+                        <span class="skill-tag" data-tooltip="Computer vision library">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="skill-icon">
+                            OpenCV
+                        </span>
+                        <span class="skill-tag" data-tooltip="Python data science">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-icon">
+                            NumPy/Pandas
+                        </span>
                         <span class="skill-tag">Deep Learning</span>
                         <span class="skill-tag">Neural Networks</span>
                         <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Computer Vision</span>
                     </div>
                 </div>
 
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
                     <h3>Graphics Programming</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">DirectX 11</span>
-                        <span class="skill-tag">OpenGL</span>
+                        <span class="skill-tag" data-tooltip="Microsoft graphics API">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.5 0L0 3v18l11.5 3 11.5-3V3L11.5 0zm8.5 19.5l-8.5 2.219-8.5-2.219V4.5l8.5-2.219 8.5 2.219v15z"/>
+                            </svg>
+                            DirectX 11
+                        </span>
+                        <span class="skill-tag" data-tooltip="Cross-platform graphics API">
+                            <svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.026 3.503L12 0 3.974 3.503 0 12l3.974 8.497L12 24l8.026-3.503L24 12l-3.974-8.497zM12 4.5l6.513 2.831L12 10.162 5.487 7.331 12 4.5z"/>
+                            </svg>
+                            OpenGL
+                        </span>
                         <span class="skill-tag">Shaders (HLSL/GLSL)</span>
                         <span class="skill-tag">Custom Engines</span>
                         <span class="skill-tag">3D Rendering</span>
@@ -416,9 +440,18 @@
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
                     <h3>Game Development</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Unity</span>
-                        <span class="skill-tag">Unreal Engine</span>
-                        <span class="skill-tag">C# (Unity)</span>
+                        <span class="skill-tag" data-tooltip="Game engine">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" class="skill-icon">
+                            Unity
+                        </span>
+                        <span class="skill-tag" data-tooltip="Game engine">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal" class="skill-icon">
+                            Unreal Engine
+                        </span>
+                        <span class="skill-tag" data-tooltip="C# for Unity">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon">
+                            C# (Unity)
+                        </span>
                         <span class="skill-tag">Game AI</span>
                         <span class="skill-tag">Physics Simulation</span>
                         <span class="skill-tag">SDL</span>
@@ -428,10 +461,22 @@
                 <div class="skill-category" data-aos="fade-up">
                     <h3>Programming Languages</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag" data-tooltip="Systems programming">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-icon">
+                            C++
+                        </span>
+                        <span class="skill-tag" data-tooltip="AI & scripting">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-icon">
+                            Python
+                        </span>
+                        <span class="skill-tag" data-tooltip="Unity & .NET">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon">
+                            C#
+                        </span>
+                        <span class="skill-tag" data-tooltip="Web development">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon">
+                            JavaScript
+                        </span>
                         <span class="skill-tag">HLSL/GLSL</span>
                     </div>
                 </div>
@@ -439,10 +484,22 @@
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
                     <h3>Tools & Frameworks</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Visual Studio</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag" data-tooltip="Version control">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon">
+                            Git
+                        </span>
+                        <span class="skill-tag" data-tooltip="IDE">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="VS" class="skill-icon">
+                            Visual Studio
+                        </span>
+                        <span class="skill-tag" data-tooltip="Code editor">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" class="skill-icon">
+                            VS Code
+                        </span>
+                        <span class="skill-tag" data-tooltip="Interactive notebooks">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" class="skill-icon">
+                            Jupyter
+                        </span>
                         <span class="skill-tag">FMOD</span>
                     </div>
                 </div>
@@ -513,11 +570,11 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Filippo Maria Libardi. Built with passion for AI and graphics programming.</p>
+            <p>&copy; 2026 Filippo Maria Libardi.</p>
             <p class="footer-links">
                 <a href="https://github.com/FilippoL" target="_blank">GitHub</a> •
                 <a href="https://www.researchgate.net/profile/Filippo-Libardi" target="_blank">ResearchGate</a> •
-                <a href="Curriculum/Filippo_Maria_Libardi_cv.pdf" target="_blank">CV</a>
+                <a href="Curriculum/CV.pdf" target="_blank">CV</a>
             </p>
         </div>
     </footer>
