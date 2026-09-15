@@ -424,7 +424,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const navHeight = document.getElementById('nav').offsetHeight;
+            const navHeight = document.getElementById('site-nav').offsetHeight;
             const targetPosition = target.offsetTop - navHeight;
             
             window.scrollTo({
