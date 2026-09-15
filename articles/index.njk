@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Articles - Filippo Libardi
+description: Writing on AI, graphics programming, and engineering from Filippo Maria Libardi.
+navIndicator: Articles
+---
+<section id="articles-page" class="wrapper">
+    <div class="container">
+        <header class="section-header">
+            <h1>Articles</h1>
+            <p>Thoughts on AI, graphics programming, and engineering</p>
+        </header>
+
+        {% if collections.articles.length > 0 %}
+        <div class="articles-list">
+            {% for post in collections.articles %}
+            <article class="article-summary">
+                <p class="article-meta">{{ post.date | readableDate }}</p>
+                <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+                <p>{{ post.data.description }}</p>
+            </article>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="articles-empty">No articles yet &mdash; check back soon.</p>
+        {% endif %}
+    </div>
+</section>
