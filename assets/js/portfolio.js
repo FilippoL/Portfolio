@@ -388,9 +388,11 @@ function updateTimestamp(date) {
 
 // Refresh button functionality and initial fetch
 document.addEventListener('DOMContentLoaded', () => {
-    // Initial fetch - do this first
-    fetchGitHubActivity();
-    
+    // Initial fetch - only on pages that have the activity container (Home)
+    if (document.getElementById('github-activity')) {
+        fetchGitHubActivity();
+    }
+
     // Set up refresh button
     const refreshButton = document.getElementById('refresh-activity');
     if (refreshButton) {
