@@ -8,11 +8,12 @@ Visit the portfolio at: [filippolibardi.co.uk](https://filippolibardi.co.uk)
 
 ## 📋 Overview
 
-This is a modern single-page portfolio built with:
-- **Pure HTML/CSS/JavaScript** (no frameworks)
+This is a multi-page portfolio (Home, About, Articles) built with:
+- **Eleventy** as a zero-runtime static site generator (build-time only — the browser still gets plain HTML/CSS/JS)
+- **Cmd/Ctrl+K command palette** for navigation, backed by a single `_data/nav.json` source of truth
 - **Dark/Light theme toggle** with localStorage persistence
 - **Dynamic GitHub integration** showing recent activity
-- **Scroll animations** using Intersection Observer API
+- **Scroll animations** and a scroll-spy nav indicator using Intersection Observer API
 - **Particle background** with Canvas API
 - **Responsive design** for all devices
 
@@ -55,20 +56,27 @@ This is a modern single-page portfolio built with:
 
 ```
 Portfolio/
-├── index.html                  # Main portfolio page
+├── .eleventy.js                # Eleventy config (passthrough copies, collections, filters)
+├── _includes/
+│   ├── base.njk                 # Shared layout: nav, command palette, footer
+│   └── layouts/article.njk      # Layout for individual article posts
+├── _data/nav.json               # Single source of truth for nav + command palette links
+├── index.njk                    # Home page
+├── about.njk                    # About page
+├── articles/
+│   ├── index.njk                 # Articles listing
+│   └── posts/                     # Individual article markdown files (none yet)
 ├── assets/
-│   ├── css/
-│   │   ├── modern.css         # Main stylesheet with theming
-│   │   └── font-awesome.min.css
+│   ├── css/modern.css           # Main stylesheet with theming
 │   └── js/
-│       ├── portfolio.js       # All interactive functionality
-│       └── util.js
-├── images/                     # Project screenshots and assets
+│       ├── portfolio.js          # Theme toggle, typing animation, particles, forms
+│       ├── command-palette.js     # Cmd/Ctrl+K navigation palette
+│       └── scroll-spy.js          # Home page nav indicator
+├── images/                      # Project screenshots and assets
 ├── Curriculum/
-│   ├── papers/                # Academic publication PDFs
+│   ├── papers/                 # Academic publication PDFs
 │   └── CV.pdf
-├── Projects/                   # Project files and documentation
-├── archive/                    # Old portfolio versions
+├── Projects/                    # Project files and documentation
 └── README.md
 ```
 
@@ -118,25 +126,24 @@ Download from [ResearchGate](https://www.researchgate.net/profile/Filippo-Libard
 ## 🚀 Deployment
 
 ### GitHub Pages
-1. Push changes to the `gh-pages` branch
-2. Ensure `CNAME` file contains: `filippolibardi.co.uk`
-3. GitHub Pages will auto-deploy
+1. Push to the `gh-pages` branch — `.github/workflows/deploy.yml` builds the site with Eleventy and deploys the `_site/` output to GitHub Pages automatically.
+2. One-time setup: in the repo's Settings → Pages, set **Source** to "GitHub Actions" (instead of "Deploy from a branch").
+3. `CNAME` passes through the build unchanged; it must contain `filippolibardi.co.uk`.
 
 ### Local Development
-Simply open `index.html` in a browser. No build process required.
-
-For live reload during development, use:
 ```bash
-# Using Python
-python -m http.server 8000
+npm install
+npm run serve   # http://localhost:8080, rebuilds on file change
+```
 
-# Using Node.js
-npx serve
+To produce a production build without serving:
+```bash
+npm run build   # outputs to _site/
 ```
 
 ## ⚡ Performance
 
-- **No dependencies**: Zero npm packages, no jQuery
+- **Minimal dependencies**: Eleventy is the only build-time dependency; zero client-side runtime frameworks
 - **Lazy loading**: Images load on demand
 - **API caching**: GitHub data cached for 1 hour
 - **Optimized animations**: 60fps with requestAnimationFrame
