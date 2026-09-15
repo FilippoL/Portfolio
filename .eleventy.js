@@ -9,6 +9,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return new Date(dateObj).toLocaleDateString("en-GB", { year: "numeric", month: "long" });
   });
+  eleventyConfig.addFilter("isoDateTime", (iso) => new Date(iso).toLocaleString("en-GB"));
+  eleventyConfig.addFilter("contributionBucket", (count) => {
+    if (count <= 0) return 0;
+    if (count <= 2) return 1;
+    if (count <= 4) return 2;
+    if (count <= 7) return 3;
+    return 4;
+  });
 
   eleventyConfig.addCollection("articles", (collectionApi) => {
     return collectionApi.getFilteredByGlob("articles/posts/*.md").sort((a, b) => b.date - a.date);

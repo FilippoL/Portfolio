@@ -307,18 +307,29 @@ navIndicator: Home
             <header class="section-header">
                 <h2>Personal Projects</h2>
                 <p>Recent personal work and GitHub activity</p>
-                <button id="refresh-activity" class="refresh-btn" aria-label="Refresh activity">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                </button>
             </header>
 
             <div id="github-activity" class="github-heatmap">
-                <p class="heatmap-prompt">Loading&hellip;</p>
+                {% if githubActivity.days.length > 0 %}
+                <p class="heatmap-prompt">$ git log --since="{{ githubActivity.days.length }} days ago" --oneline | wc -l &nbsp;<span class="heatmap-prompt-result">{{ githubActivity.totalContributions }}</span></p>
+                <div class="heatmap-grid" role="img" aria-label="GitHub contribution activity for the last {{ githubActivity.days.length }} days">
+                    {% for day in githubActivity.days %}
+                    <span class="heatmap-cell heatmap-cell--{{ day.count | contributionBucket }}" style="transition-delay:{{ loop.index0 * 6 }}ms" title="{{ day.count }} contribution{% if day.count != 1 %}s{% endif %} on {{ day.date }}" data-count="{{ day.count }}"></span>
+                    {% endfor %}
+                </div>
+                <div class="heatmap-summary">
+                    <span>{{ githubActivity.totalCommits }} commit{% if githubActivity.totalCommits != 1 %}s{% endif %}</span>
+                    <span>{{ githubActivity.totalPullRequests }} PR{% if githubActivity.totalPullRequests != 1 %}s{% endif %}</span>
+                    <span>{% if githubActivity.currentStreak > 0 %}&#128293; {{ githubActivity.currentStreak }}-day streak{% else %}no active streak right now{% endif %}</span>
+                    <span>longest streak: {{ githubActivity.longestStreak }} day{% if githubActivity.longestStreak != 1 %}s{% endif %}</span>
+                    <a href="https://github.com/FilippoL" target="_blank" class="icon-link">Full profile &rarr;</a>
+                </div>
+                <p class="activity-timestamp">Snapshot generated {{ githubActivity.generatedAt | isoDateTime }} &middot; refreshes daily via GitHub Actions</p>
+                {% else %}
+                <p class="heatmap-prompt">$ git log --oneline</p>
+                <p class="heatmap-error">No snapshot yet &mdash; the daily GitHub Action hasn't run. <a href="https://github.com/FilippoL" target="_blank">Check the profile directly</a>.</p>
+                {% endif %}
             </div>
-
-            <p class="activity-timestamp" id="activity-timestamp"></p>
         </div>
     </section>
 
