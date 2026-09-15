@@ -404,6 +404,11 @@ a:hover {
     border-radius: 4px;
 }
 
+.about-photo-group--uncropped .about-photo img {
+    height: auto;
+    object-fit: contain;
+}
+
 .about-photo figcaption {
     font-family: var(--font-mono);
     font-size: 0.8rem;
