@@ -1,42 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Filippo Libardi - AI Researcher & Graphics Programmer. MSc in Artificial Intelligence specializing in computer vision, deep learning, and game development.">
-    <meta name="keywords" content="AI researcher, computer vision, deep learning, graphics programming, game development, rPPG, neural networks">
-    <meta name="author" content="Filippo Maria Libardi">
-    <title>Filippo Libardi - AI Researcher & Graphics Programmer</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/modern.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav id="nav">
-        <div class="container">
-            <a href="#hero" class="logo">FL</a>
-            <ul class="nav-links">
-                <li><a href="#employment">Employment</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#currently-working">Personal Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Toggle dark/light mode">
-                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Particle Background Canvas -->
-    <canvas id="particle-canvas"></canvas>
-
+---
+layout: base.njk
+title: Filippo Libardi - AI Researcher & Graphics Programmer
+description: Filippo Libardi - AI Researcher & Graphics Programmer. MSc in Artificial Intelligence specializing in computer vision, deep learning, and game development.
+navIndicator: Home
+---
     <!-- Hero Section -->
     <section id="hero">
         <div class="container">
@@ -49,7 +16,7 @@
                 <p class="subtitle fade-in-delay">MSc Artificial Intelligence • Utrecht University<br>Engineering solutions the world is missing</p>
                 <div class="hero-cta fade-in-delay-2">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="Curriculum/CV.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+                    <a href="/Curriculum/CV.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
                 </div>
             </div>
         </div>
@@ -65,7 +32,7 @@
                     <p>Currently exploring <strong>procedural 3D generation</strong> and co-founding <strong>Pecus Chain</strong> and <strong>ClusTEQ</strong>. My research has been published in academic venues, focusing on contactless health monitoring, NLP bias detection, and ethical AI systems.</p>
                 </div>
                 <div class="about-image">
-                    <img src="images/filippo.jpg" alt="Filippo Libardi" class="profile-img">
+                    <img src="/images/filippo.jpg" alt="Filippo Libardi" class="profile-img">
                 </div>
             </div>
         </div>
@@ -96,7 +63,7 @@
 
                 <article class="employment-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="employment-logo">
-                        <img src="images/ClusTEQ logo-square.png" alt="ClusTEQ logo">
+                        <img src="/images/ClusTEQ logo-square.png" alt="ClusTEQ logo">
                     </div>
                     <div class="employment-content">
                         <h3>ClusTEQ</h3>
@@ -123,7 +90,7 @@
                 <!-- Project 1: rppg-nn -->
                 <article class="project-card" data-aos="fade-up">
                     <div class="project-image">
-                        <img src="images/nrppg.png" alt="rPPG Neural Network">
+                        <img src="/images/nrppg.png" alt="rPPG Neural Network">
                         <div class="project-overlay">
                             <a href="https://github.com/FilippoL/rppg-nn" target="_blank" class="project-link">View on GitHub</a>
                         </div>
@@ -150,7 +117,7 @@
                 <!-- Project 2: FaceManager -->
                 <article class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <img src="images/Facemanager.png" alt="Face Manager">
+                        <img src="/images/Facemanager.png" alt="Face Manager">
                         <div class="project-overlay">
                             <a href="https://github.com/FilippoL/FaceManager" target="_blank" class="project-link">View on GitHub</a>
                         </div>
@@ -174,7 +141,7 @@
                 <!-- Project 3: Multimedia Retrieval -->
                 <article class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <img src="images/mmr.jpg" alt="Multimedia Retrieval">
+                        <img src="/images/mmr.jpg" alt="Multimedia Retrieval">
                         <div class="project-overlay">
                             <a href="https://github.com/FilippoL/project_multimedia_retrieval" target="_blank" class="project-link">View on GitHub</a>
                         </div>
@@ -198,7 +165,7 @@
                 <!-- Project 4: Unity Hunting Game -->
                 <article class="project-card" data-aos="fade-up">
                     <div class="project-image">
-                        <img src="images/hunter.png" alt="Unity Hunting Game">
+                        <img src="/images/hunter.png" alt="Unity Hunting Game">
                         <div class="project-overlay">
                             <a href="https://filippol.github.io/UnityHuntingGame/" target="_blank" class="project-link">Play Demo</a>
                         </div>
@@ -225,7 +192,7 @@
                 <!-- Project 5: Zombie Holocaust -->
                 <article class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <img src="images/ZombieHolocaust.PNG" alt="Zombie Holocaust">
+                        <img src="/images/ZombieHolocaust.PNG" alt="Zombie Holocaust">
                         <div class="project-overlay">
                             <a href="https://github.com/FilippoL/ZombieHolocaust" target="_blank" class="project-link">View on GitHub</a>
                         </div>
@@ -252,7 +219,7 @@
                 <!-- Project 6: Bremen Hackathon -->
                 <article class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <img src="images/bremen.jpg" alt="Bremen Hackathon">
+                        <img src="/images/bremen.jpg" alt="Bremen Hackathon">
                         <div class="project-overlay">
                             <a href="https://github.com/FilippoL/BremenHackathon2019" target="_blank" class="project-link">View on GitHub</a>
                         </div>
@@ -303,7 +270,7 @@
                         <p class="publication-abstract">Deep learning approach to remote heart rate estimation using spatial-temporal representations. Novel methodology for contactless cardiovascular monitoring through computer vision, eliminating the need for traditional touch sensors.</p>
                         <div class="publication-links">
                             <a href="https://www.researchgate.net/publication/358575638" target="_blank" class="btn btn-small">ResearchGate</a>
-                            <a href="Curriculum/papers/libardi_2021_nrppg.pdf" class="btn btn-small">PDF</a>
+                            <a href="/Curriculum/papers/libardi_2021_nrppg.pdf" class="btn btn-small">PDF</a>
                             <a href="https://github.com/FilippoL/rppg-nn" target="_blank" class="btn btn-small">Code</a>
                         </div>
                     </div>
@@ -322,7 +289,7 @@
                         <p class="publication-abstract">Novel approach to language bias visualization through temporal analysis of large-scale Reddit datasets. Introduces methodology for collecting and analyzing bias scores from text corpora using word embeddings.</p>
                         <div class="publication-links">
                             <a href="https://www.researchgate.net/publication/349350185" target="_blank" class="btn btn-small">ResearchGate</a>
-                            <a href="Curriculum/papers/mattas_libardi_2021_bias.pdf" class="btn btn-small">PDF</a>
+                            <a href="/Curriculum/papers/mattas_libardi_2021_bias.pdf" class="btn btn-small">PDF</a>
                         </div>
                     </div>
                 </article>
@@ -340,7 +307,7 @@
                         <p class="publication-abstract">Examines decentralized systems as solutions to privacy policy challenges. Presents ethical dilemmas in modern computing and proposes decentralized architectures as ethically supportive alternatives.</p>
                         <div class="publication-links">
                             <a href="https://www.researchgate.net/publication/349339676" target="_blank" class="btn btn-small">ResearchGate</a>
-                            <a href="Curriculum/papers/libardi_2020_decentralised.pdf" class="btn btn-small">PDF</a>
+                            <a href="/Curriculum/papers/libardi_2020_decentralised.pdf" class="btn btn-small">PDF</a>
                         </div>
                     </div>
                 </article>
@@ -613,20 +580,3 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Filippo Maria Libardi.</p>
-            <p class="footer-links">
-                <a href="https://github.com/FilippoL" target="_blank">GitHub</a> •
-                <a href="https://www.researchgate.net/profile/Filippo-Libardi" target="_blank">ResearchGate</a> •
-                <a href="Curriculum/CV.pdf" target="_blank">CV</a>
-            </p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="assets/js/portfolio.js"></script>
-</body>
-</html>

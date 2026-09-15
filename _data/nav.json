@@ -1,0 +1,11 @@
+[
+  { "label": "About", "href": "/about/", "type": "page" },
+  { "label": "Employment", "href": "/#employment", "type": "section" },
+  { "label": "Projects", "href": "/#projects", "type": "section" },
+  { "label": "Publications", "href": "/#publications", "type": "section" },
+  { "label": "Personal Projects", "href": "/#currently-working", "type": "section" },
+  { "label": "Skills", "href": "/#skills", "type": "section" },
+  { "label": "Articles", "href": "/articles/", "type": "page" },
+  { "label": "Contact", "href": "/#contact", "type": "section" },
+  { "label": "GitHub Profile", "href": "https://github.com/FilippoL", "type": "external" }
+]
