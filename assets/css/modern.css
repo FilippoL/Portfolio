@@ -5,37 +5,35 @@
 /* CSS Custom Properties for Theming */
 :root {
     /* Dark Theme (Default) */
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #2a2a2a;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --text-muted: #707070;
-    --accent-primary: #3b82f6;
-    --accent-secondary: #60a5fa;
-    --accent-hover: #2563eb;
-    --border-color: #333;
+    --bg-primary: #0d0d0d;
+    --bg-secondary: #161616;
+    --bg-tertiary: #1f1f1f;
+    --text-primary: #f2f2f0;
+    --text-secondary: #b5b5b0;
+    --text-muted: #7a7a76;
+    --accent-primary: #ffb454;
+    --accent-secondary: #ffb454;
+    --accent-hover: #e69f3f;
+    --border-color: #2e2e2c;
     --shadow: rgba(0, 0, 0, 0.3);
-    --overlay: rgba(0, 0, 0, 0.7);
-    --gradient-start: #1e3a8a;
-    --gradient-end: #3b82f6;
+    --overlay: rgba(0, 0, 0, 0.75);
+    --font-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 [data-theme="light"] {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --bg-tertiary: #e5e5e5;
-    --text-primary: #1a1a1a;
-    --text-secondary: #4a4a4a;
-    --text-muted: #8a8a8a;
-    --accent-primary: #3b82f6;
-    --accent-secondary: #2563eb;
-    --accent-hover: #1d4ed8;
-    --border-color: #ddd;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --overlay: rgba(255, 255, 255, 0.9);
-    --gradient-start: #3b82f6;
-    --gradient-end: #60a5fa;
+    --bg-primary: #fafaf8;
+    --bg-secondary: #f0f0ee;
+    --bg-tertiary: #e6e6e3;
+    --text-primary: #16160f;
+    --text-secondary: #4a4a45;
+    --text-muted: #83837c;
+    --accent-primary: #b5730f;
+    --accent-secondary: #b5730f;
+    --accent-hover: #8f5c0c;
+    --border-color: #d8d8d3;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --overlay: rgba(250, 250, 248, 0.9);
 }
 
 /* Reset & Base Styles */
@@ -51,7 +49,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-sans);
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -61,6 +59,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-mono);
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
