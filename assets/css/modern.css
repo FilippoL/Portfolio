@@ -376,8 +376,8 @@ a:hover {
 
 .profile-img {
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px var(--shadow);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
 }
 
 /* Projects Grid */
@@ -396,19 +396,18 @@ a:hover {
 }
 
 .employment-card {
-    background-color: var(--bg-tertiary);
-    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     padding: 1.5rem;
     display: grid;
     grid-template-columns: 120px 1fr;
     gap: 1.5rem;
     align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 .employment-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px var(--shadow);
+    border-color: var(--accent-primary);
 }
 
 .employment-logo img {
@@ -442,16 +441,15 @@ a:hover {
 }
 
 .project-card {
-    background-color: var(--bg-tertiary);
-    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.2s ease;
     cursor: pointer;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px var(--shadow);
+    border-color: var(--accent-primary);
 }
 
 .project-image {
@@ -516,11 +514,13 @@ a:hover {
 }
 
 .tag {
-    background-color: var(--accent-primary);
-    color: #fff;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
     font-weight: 500;
 }
 
@@ -564,18 +564,17 @@ a:hover {
 }
 
 .publication-card {
-    background-color: var(--bg-tertiary);
-    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     padding: 2rem;
     display: grid;
     grid-template-columns: 150px 1fr;
     gap: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 .publication-card:hover {
-    transform: translateX(10px);
-    box-shadow: 0 10px 30px var(--shadow);
+    border-color: var(--accent-primary);
 }
 
 .publication-meta {
@@ -961,14 +960,14 @@ a:hover {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    background-color: var(--bg-tertiary);
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: transparent;
     color: var(--text-primary);
     font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 .form-group input:focus,
@@ -1155,4 +1154,46 @@ footer p {
     font-size: 0.75rem;
     color: var(--text-muted);
     text-transform: uppercase;
+}
+
+/* Articles page */
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.article-summary {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+.article-summary h3 {
+    margin-bottom: 0.5rem;
+}
+
+.article-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.articles-empty {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 3rem 0;
+}
+
+/* About teaser on Home */
+.about-teaser {
+    text-align: center;
+}
+
+.about-teaser p {
+    max-width: 640px;
+    margin: 0 auto 1rem;
+    color: var(--text-secondary);
 }
