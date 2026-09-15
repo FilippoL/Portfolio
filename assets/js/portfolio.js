@@ -102,7 +102,7 @@ class Particle {
 
     draw() {
         const theme = htmlElement.getAttribute('data-theme');
-        ctx.fillStyle = theme === 'dark' ? 'rgba(59, 130, 246, 0.5)' : 'rgba(59, 130, 246, 0.3)';
+        ctx.fillStyle = theme === 'dark' ? 'rgba(180, 180, 176, 0.35)' : 'rgba(80, 80, 76, 0.25)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -110,7 +110,7 @@ class Particle {
 }
 
 const particlesArray = [];
-const numberOfParticles = 100;
+const numberOfParticles = 45;
 
 function initParticles() {
     for (let i = 0; i < numberOfParticles; i++) {
@@ -133,9 +133,9 @@ function animateParticles() {
             
             if (distance < 100) {
                 const theme = htmlElement.getAttribute('data-theme');
-                ctx.strokeStyle = theme === 'dark' 
-                    ? `rgba(59, 130, 246, ${0.2 - distance / 500})` 
-                    : `rgba(59, 130, 246, ${0.1 - distance / 1000})`;
+                ctx.strokeStyle = theme === 'dark'
+                    ? `rgba(180, 180, 176, ${0.15 - distance / 700})`
+                    : `rgba(80, 80, 76, ${0.08 - distance / 1200})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
