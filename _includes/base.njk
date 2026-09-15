@@ -28,6 +28,15 @@
         </div>
     </nav>
 
+    <div id="command-palette" class="command-palette" hidden>
+        <div class="command-palette-backdrop"></div>
+        <div class="command-palette-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+            <input type="text" id="command-palette-input" class="command-palette-input" placeholder="Jump to..." autocomplete="off">
+            <ul id="command-palette-results" class="command-palette-results"></ul>
+        </div>
+    </div>
+    <script type="application/json" id="nav-data">{{ nav | dump | safe }}</script>
+
     <canvas id="particle-canvas"></canvas>
 
     <main>
@@ -46,5 +55,6 @@
     </footer>
 
     <script src="/assets/js/portfolio.js"></script>
+    <script src="/assets/js/command-palette.js"></script>
 </body>
 </html>
