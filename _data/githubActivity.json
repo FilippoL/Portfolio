@@ -1,6 +1,6 @@
 {
   "username": "FilippoL",
-  "generatedAt": "2026-10-24T03:34:03.067Z",
+  "generatedAt": "2026-10-25T03:37:32.465Z",
   "totalContributions": 339,
   "totalCommits": 285,
   "totalPullRequests": 36,
@@ -9,10 +9,6 @@
   "currentStreak": 0,
   "longestStreak": 4,
   "days": [
-    {
-      "date": "2026-07-25",
-      "count": 0
-    },
     {
       "date": "2026-07-26",
       "count": 0
@@ -375,6 +371,10 @@
     },
     {
       "date": "2026-10-24",
+      "count": 0
+    },
+    {
+      "date": "2026-10-25",
       "count": 0
     }
   ]
