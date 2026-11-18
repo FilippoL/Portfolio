@@ -1,18 +1,14 @@
 {
   "username": "FilippoL",
-  "generatedAt": "2026-11-17T03:25:06.227Z",
-  "totalContributions": 393,
-  "totalCommits": 320,
-  "totalPullRequests": 51,
-  "totalIssues": 15,
+  "generatedAt": "2026-11-18T03:25:36.922Z",
+  "totalContributions": 407,
+  "totalCommits": 331,
+  "totalPullRequests": 57,
+  "totalIssues": 12,
   "totalReviews": 5,
   "currentStreak": 0,
   "longestStreak": 5,
   "days": [
-    {
-      "date": "2026-08-18",
-      "count": 3
-    },
     {
       "date": "2026-08-19",
       "count": 0
@@ -355,7 +351,7 @@
     },
     {
       "date": "2026-11-12",
-      "count": 11
+      "count": 12
     },
     {
       "date": "2026-11-13",
@@ -371,10 +367,14 @@
     },
     {
       "date": "2026-11-16",
-      "count": 6
+      "count": 8
     },
     {
       "date": "2026-11-17",
+      "count": 14
+    },
+    {
+      "date": "2026-11-18",
       "count": 0
     }
   ]
